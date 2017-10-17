@@ -15,6 +15,15 @@ describe('SlideDancer', function() {
     slideDancer.step();
     expect(slideDancer.$node.toggleClass.called).to.be.true;
   });
+  
+  it ('should inherit the "height" property in the class "dancer" from superclass "dancer"', function () {
+    var dancerCSS = slideDancer.$node.css('height');
+    expect(dancerCSS).to.exist;
+  });
+  
+  it('should inherit the method "setPosition" from superclass Dancer', function() {
+    expect (slideDancer.setPosition).to.exist;
+  });
 
   describe('dance', function() {
     it('should call step at least once per second', function() {

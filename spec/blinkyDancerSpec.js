@@ -11,11 +11,21 @@ describe('BlinkyDancer', function() {
     expect(blinkyDancer.$node).to.be.an.instanceof(jQuery);
   });
 
-  it('should have a step function that makes its node blink', function() {
+  it('should not have a step function that makes its node blink', function() {
     sinon.spy(blinkyDancer.$node, 'toggle');
     blinkyDancer.step();
-    expect(blinkyDancer.$node.toggle.called).to.be.true;
+    expect(blinkyDancer.$node.toggle.called).to.be.false;
   });
+  
+  it('should inherit the method "setPosition" from superclass Dancer', function() {
+    expect (blinkyDancer.setPosition).to.exist;
+  });
+  
+  it ('should inherit the "height" property in the class "dancer" from superclass "dancer"', function () {
+    var dancerCSS = blinkyDancer.$node.css('height');
+    expect(dancerCSS).to.exist;
+  });
+
 
   describe('dance', function() {
     it('should call step at least once per second', function() {
@@ -30,4 +40,5 @@ describe('BlinkyDancer', function() {
       expect(blinkyDancer.step.callCount).to.be.equal(2);
     });
   });
+    
 });

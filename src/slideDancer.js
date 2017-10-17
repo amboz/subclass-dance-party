@@ -1,6 +1,6 @@
 var SlideDancer = function(top, left, timeBetweenSteps) {
   Dancer.call(this, top, left, timeBetweenSteps);
-  this.$node.prepend('<img src="img/Foxy.png" >'); 
+  this.$node.prepend('<img src="img/Shopkeeper.gif" height=250px>'); 
 };
 
 SlideDancer.prototype = Object.create(Dancer.prototype);

@@ -1,5 +1,6 @@
 $(document).ready(function() {
   window.dancers = [];
+  window.partnerDancers = [];  // [[dacer 1, dacer 2], [dacer 3, dancer 4]]
 
   $('.addDancerButton').on('click', function(event) {
     /* This function sets up the click handlers for the create-dancer
@@ -19,19 +20,51 @@ $(document).ready(function() {
     var dancerMakerFunctionName = $(this).data('dancer-maker-function-name');
     // get the maker function for the kind of dancer we're supposed to make
     var dancerMakerFunction = window[dancerMakerFunctionName];
-
-    // make a dancer with a random position
-    var dancer = new dancerMakerFunction(
-      $('body').height() * Math.random(),
-      $('body').width() * Math.random(),
-      (Math.random() * 1000) + 200
-    );
+    
+    var dancer = newDancer (dancerMakerFunction);
+    
     $('body').append(dancer.$node);
-    window.dancers.push (dancer); 
-    // console.log (window.dancers);
+    
+    
+    window.dancers.push(dancer); 
   });
   
+  var partnerUp = function() {
+ 
+    for (var i = 0; i < window.partnerDancers.length; i++) {
+      var x = Math.random() * ($('body').width() - 200);
+      var y = (Math.random() * ($('body').height() - 400)) + 175;
+      partnerDancers[i][0].setPosition(y, x);
+      partnerDancers[i][1].setPosition(y, x + 100);
+    }
+  };
   
+  $('.partnerButton').on('click', function(event) {
+    var dancerMakerFunctionName = $(this).data('dancer-maker-function-name');
+    // get the maker function for the kind of dancer we're supposed to make
+    var dancerMakerFunction = window[dancerMakerFunctionName];
+
+    var dancer = newDancer (dancerMakerFunction);
+    var dancer2 = newDancer (dancerMakerFunction);
+
+    $('body').append(dancer.$node);
+    $('body').append(dancer2.$node);
+
+    window.partnerDancers.push([dancer, dancer2]); 
+    
+    partnerUp();
+    partnerUp();
+  });
+
+  var newDancer = function (dancerMakerFunction) {
+    // make a dancer with a random position
+    var dancer = new dancerMakerFunction(
+    (($('body').height() - 400) * Math.random()) + 175,
+    ($('body').width() - 200) * Math.random(),
+    (Math.random() * 1000) + 200
+    ); 
+    return dancer;
+  };
   
   $('.addBand').on('click', function (event) {
     var winWidth = window.innerWidth;
@@ -61,12 +94,31 @@ $(document).ready(function() {
     // console.log ('test')  // works
     var dancers = window.dancers;
     var winWidth = window.innerWidth;
-    var spacing = returnSpacing(dancers.length, 'horizontal');
+    var spacing = returnSpacing(dancers.length, 'vertical');
     for (var i = 0; i < dancers.length; i++) {
-      dancers[i].setPosition ( (window.innerHeight / 2) - 100, spacing * i);
+      dancers[i].setPosition (spacing * i, 10);
     }
-    
   });
+  
+  
+  
+  var movePartnerDancers = function () {
+    // flip places
+    
+  };
+  
+  var partnerTimer = setTimeout (movePartnerDancers, 500);
+  //select all partner dancers
+    //partner dancer will grab closest 1 neighbor via pythagorean theorem
+      //switch places? interact somehow?
+  //immediately invoke this fxn
+    
+
+  //eventually control music some how
+  // (function playAudio() {
+    
+  // }());
+  
 });
 
 var returnSpacing = function(numberofObject, verticalOrHorizontal = 'horizontal') {

@@ -3,29 +3,43 @@
   <head>
     <title>Object Dance Party</title>
     <link rel="stylesheet" type="text/css" href="styles.css" />
+    <link rel="stylesheet" type="text/css" href="animate.css" />
+    
     <script src="lib/jquery.js"></script>
     <script src="src/dancer.js"></script>
     <script src="src/blinkyDancer.js"></script>
     <script src="src/shimmyDancer.js"></script>
     <script src="src/slideDancer.js"></script>
     <script src="src/StaticDancer.js"></script>
+    <script src="src/PartnerDancer.js"></script>
     
   </head>
   <body>
+
+    
     <div class="topbar">
-      <span class="title">object dance party</span>
-      <a href="#" class="addDancerButton" data-dancer-maker-function-name="BlinkyDancer">add a blinky dancer</a>
+      <!-- <span class="title">object dance party</span>
+ -->      <a href="#" class="addDancerButton" data-dancer-maker-function-name="BlinkyDancer">add a zoom dancer</a>
       
-      <a href="#" class="addDancerButton" data-dancer-maker-function-name="ShimmyDancer">add a shimmy dancer</a>
+      <a href="#" class="addDancerButton" data-dancer-maker-function-name="ShimmyDancer">add an ATTACK!! dancer</a>
       
-       <a href="#" class="addDancerButton" data-dancer-maker-function-name="SlideDancer">add a Slide dancer</a>
+       <a href="#" class="addDancerButton" data-dancer-maker-function-name="SlideDancer">add a Hula dancer</a>
        
        <a href="#" class="addBand" data-dancer-maker-function-name="StaticDancer">add THE BAND!</a>
        
-       <a href="#" class="lineUp" data-dancer-maker-function-name="lineup">LineUP</a>
+       <a href="#" class="lineUp" data-dancer-maker-function-name="lineup">LineUP to turn up!</a>
+       
+       <a href="#" class="partnerButton" data-dancer-maker-function-name="PartnerDancer">Double Trouble</a>
       
       </div>
     <script src="src/init.js"></script>
+    <div id='music'>
+      <audio autoplay>
+        <source src="sounds/livingTombstone.mp3" type="audio/mp3">
+        Audio not supported.
+      </audio>
+    </div>
+    <img class = "background" src = "img/background.jpg" ></img>
   </body>
 </html>
 

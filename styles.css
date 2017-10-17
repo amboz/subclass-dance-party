@@ -8,16 +8,40 @@ body{
   margin: 0px;
   font-size: 18px;
   
-  background-image: url("img/background.jpg");
+  /*background-image: url("img/backgrounds/five_nights_at_freddys_story_09.jpg");*/
+  /*background-image: url("img/background.jpg");*/
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
 body, a:link, a:visited, a:active{
   color: lightblue;
 }
-.title, .addDancerButton, .addBand, .lineUp{
+
+.background {
+  z-index: -50;
+  padding: 0;
+  display: block;
+  margin: 0 auto;
+  max-height: 100%;
+  max-width: 100%;
+  height: 100% ;
+  width: 100%;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+
+}
+
+.title, .addDancerButton, .addBand, .partnerButton {
   padding:5px 12px;
   float:right;
+  z-index: +10;
+}
+
+.lineUp {
+  padding:5px 12px;
+  float:left;
+  z-index: +10;
 }
 .topbar{
   height:32px;
@@ -32,6 +56,7 @@ body, a:link, a:visited, a:active{
   height: 600px;
   width: auto;
   position:absolute;
+  z-index: -10;
 }
 
 
@@ -52,7 +77,7 @@ body, a:link, a:visited, a:active{
 .shimmyMove {
 /*  border:10px solid blue;*/
   height: 3px;
-  position: relative;
+  position: absolute;
   right: 5px;
 }
 .shimmy:hover {
@@ -63,12 +88,12 @@ body, a:link, a:visited, a:active{
 }
 
 
-.slide {
+/*.slide {
   
-}
+}*/
 .slideMove {
   -webkit-transform: scaleY(-1);
-  transform: scaleY(-1);
+  transform: scaleX(-1);
 /*  border:10px solid white;*/
   /*position: absolute;*/
   /*right: 10px;*/
@@ -79,6 +104,16 @@ body, a:link, a:visited, a:active{
   right: 10px;
 }
 
+.band{
+  position: absolute;
+  z-index: +15;
+}
+
 .scare {
   position: absolute;
+}
+
+.partnerDancer {
+  position: absolute;
+  
 }

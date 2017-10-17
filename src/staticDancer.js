@@ -1,8 +1,8 @@
 var StaticDancer = function(top, left, timeBetweenSteps) {
   Dancer.call(this, top, left, timeBetweenSteps);
-  this.$node.prepend('<img class = "bandImage" src="img/Toy_bon.gif" width = 200px >'); 
+  this.$node.prepend('<img class = "bandImage" src="img/Toy_bon.gif" width = 150px >'); 
   this.$node.addClass('band');
-  this.$node.removeClass('Dancer')
+  this.$node.removeClass('Dancer');
 };
 
 StaticDancer.prototype = Object.create(Dancer.prototype);
