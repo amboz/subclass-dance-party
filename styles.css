@@ -15,7 +15,7 @@ body{
 body, a:link, a:visited, a:active{
   color: lightblue;
 }
-.title, .addDancerButton, .addBand{
+.title, .addDancerButton, .addBand, .lineUp{
   padding:5px 12px;
   float:right;
 }

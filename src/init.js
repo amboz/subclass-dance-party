@@ -24,11 +24,11 @@ $(document).ready(function() {
     var dancer = new dancerMakerFunction(
       $('body').height() * Math.random(),
       $('body').width() * Math.random(),
-      Math.random() * 1000
+      (Math.random() * 1000) + 200
     );
     $('body').append(dancer.$node);
     window.dancers.push (dancer); 
-    console.log (window.dancers);
+    // console.log (window.dancers);
   });
   
   
@@ -57,8 +57,24 @@ $(document).ready(function() {
     });
   });
     
-  
-
-  
+  $('.lineUp').on('click', function () {
+    // console.log ('test')  // works
+    var dancers = window.dancers;
+    var winWidth = window.innerWidth;
+    var spacing = returnSpacing(dancers.length, 'horizontal');
+    for (var i = 0; i < dancers.length; i++) {
+      dancers[i].setPosition ( (window.innerHeight / 2) - 100, spacing * i);
+    }
+    
+  });
 });
 
+var returnSpacing = function(numberofObject, verticalOrHorizontal = 'horizontal') {
+  var winWidth = window.innerWidth;
+  var winHeight = window.innerHeight;
+  if (verticalOrHorizontal === 'horizontal') {
+    return Math.floor(winWidth / numberofObject);
+  } else if (verticalOrHorizontal === 'vertical') {
+    return Math.floor(winHeight / numberofObject);
+  }
+};
