@@ -1,18 +1,21 @@
 body, html{
   height:100%;
+    margin: 0; 
+    height: 100%; 
+    overflow: hidden
 }
 body{
   margin: 0px;
   font-size: 18px;
   
-  background-image: url("background.jpg");
+  background-image: url("img/background.jpg");
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
 body, a:link, a:visited, a:active{
   color: lightblue;
 }
-.title, .addDancerButton{
+.title, .addDancerButton, .addBand{
   padding:5px 12px;
   float:right;
 }
@@ -23,13 +26,14 @@ body, a:link, a:visited, a:active{
 .title{
   background-color: #777;
 }
+
+
 .dancer{
-/*  border:10px solid red;
-  border-radius:10px;*/
   height: 600px;
   width: auto;
   position:absolute;
 }
+
 
 .dancer:hover {
 /*  border:10px solid red;
@@ -40,12 +44,17 @@ body, a:link, a:visited, a:active{
 }
 
 .shimmy {
-/*  border:10px solid blue;*/
-  height: 500px;
+/*  height: 500px;
   position: relative;
-  right: 3px;
+  right: 3px;*/
 }
 
+.shimmyMove {
+/*  border:10px solid blue;*/
+  height: 3px;
+  position: relative;
+  right: 5px;
+}
 .shimmy:hover {
 /*  border:10px solid blue;*/
   height: 100px;
@@ -53,16 +62,23 @@ body, a:link, a:visited, a:active{
   right: 3px;
 }
 
+
 .slide {
+  
+}
+.slideMove {
   -webkit-transform: scaleY(-1);
   transform: scaleY(-1);
 /*  border:10px solid white;*/
   /*position: absolute;*/
   /*right: 10px;*/
 }
-
 .slide:hover {
 /*  border:10px solid white;*/
   position: absolute;
   right: 10px;
+}
+
+.scare {
+  position: absolute;
 }

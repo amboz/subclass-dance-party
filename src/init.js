@@ -27,6 +27,38 @@ $(document).ready(function() {
       Math.random() * 1000
     );
     $('body').append(dancer.$node);
+    window.dancers.push (dancer); 
+    console.log (window.dancers);
   });
+  
+  
+  
+  $('.addBand').on('click', function (event) {
+    var winWidth = window.innerWidth;
+    var numberToUse = Math.floor (winWidth / 50);
+    var dancerMakerFunctionName = $(this).data('dancer-maker-function-name');
+    var dancerMakerFunction = window[dancerMakerFunctionName];
+    
+    for (var i = 1; i < numberToUse / 2; i++) {
+      var dancer = new dancerMakerFunction(
+        $('body').height() * .05,
+        (numberToUse * i * 3)
+      );
+      $('body').append(dancer.$node);
+    }
+    
+      /// do something on scroll
+    $('.bandImage').mouseover(function () {
+      $('.bandImage').attr('src', 'img/giphy.gif');
+    });
+    
+    $('.bandImage').mouseout(function () {
+      $('.bandImage').attr('src', 'img/Toy_bon.gif');
+    });
+  });
+    
+  
+
+  
 });
 

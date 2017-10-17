@@ -18,9 +18,12 @@ Dancer.prototype.step = function() {
   var meToo = this;
   // the basic dancer doesn't do anything interesting at all on each step,
   // it just schedules the next 
-  setTimeout(function () {
-    meToo.step();
-  }, meToo.timeBetweenSteps);
+  if (meToo.timeBetweenSteps) {
+    setTimeout(function () {
+      meToo.step();
+    }, meToo.timeBetweenSteps);
+  }
+
 };
 
 
