@@ -23,7 +23,6 @@ Dancer.prototype.step = function() {
       meToo.step();
     }, meToo.timeBetweenSteps);
   }
-
 };
 
 
