@@ -64,14 +64,16 @@ $(document).ready(function() {
   
   $('.addBand').on('click', function (event) {
     var winWidth = window.innerWidth;
-    var numberToUse = Math.floor (winWidth / 50);
+    var numberToUse = Math.floor (winWidth / 75);
+    var spacing = returnSpacing(numberToUse);
+    
     var dancerMakerFunctionName = $(this).data('dancer-maker-function-name');
     var dancerMakerFunction = window[dancerMakerFunctionName];
     
-    for (var i = 1; i < numberToUse / 2; i++) {
+    for (var i = 1; i < numberToUse; i++) {
       var dancer = new dancerMakerFunction(
         $('body').height() * .05,
-        (numberToUse * i * 3)
+        (spacing * (i - 1) )
       );
       $('body').append(dancer.$node);
     }
